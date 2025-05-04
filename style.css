@@ -62,11 +62,11 @@ h1 {
 }
 
 .celula.x {
-    color: #e74c3c; /* Vermelho para X */
+    color: #e74c3c; 
 }
 
 .celula.o {
-    color: #3498db; /* Azul para O */
+    color: #3498db;
 }
 
 #reiniciar-btn {
@@ -84,7 +84,6 @@ h1 {
     background-color: #27ae60;
 }
 
-/* Responsividade para celulares */
 @media (max-width: 480px) {
     .celula {
         height: 80px;

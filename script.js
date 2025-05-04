@@ -7,14 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let estadoJogo = ['', '', '', '', '', '', '', '', ''];
     let jogoAtivo = true;
     
-    // Combinações de vitória (linhas, colunas, diagonais)
     const condicoesVitoria = [
         [0, 1, 2], [3, 4, 5], [6, 7, 8], // Linhas
         [0, 3, 6], [1, 4, 7], [2, 5, 8], // Colunas
         [0, 4, 8], [2, 4, 6]             // Diagonais
     ];
     
-    // Função para verificar se alguém ganhou
     function verificarVitoria() {
         for (const condicao of condicoesVitoria) {
             const [a, b, c] = condicao;
@@ -30,12 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return false;
     }
     
-    // Função para verificar empate
     function verificarEmpate() {
         return !estadoJogo.includes('') && !verificarVitoria();
     }
     
-    // Função para atualizar o status do jogo
     function atualizarStatus() {
         if (verificarVitoria()) {
             status.textContent = `Jogador ${jogadorAtual} venceu!`;
@@ -49,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // Função para lidar com o clique em uma célula
     function lidarCliqueCelula(event) {
         const celulaClicada = event.target;
         const indice = parseInt(celulaClicada.getAttribute('data-index'));
@@ -63,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
         atualizarStatus();
     }
     
-    // Função para reiniciar o jogo
     function reiniciarJogo() {
         jogadorAtual = 'X';
         estadoJogo = ['', '', '', '', '', '', '', '', ''];
@@ -76,11 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // Adiciona eventos de clique às células
     celulas.forEach(celula => {
         celula.addEventListener('click', lidarCliqueCelula);
     });
     
-    // Evento para reiniciar o jogo
     botaoReiniciar.addEventListener('click', reiniciarJogo);
 });
